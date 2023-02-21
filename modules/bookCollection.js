@@ -1,14 +1,14 @@
-import Book from "./class.js";
+import Book from './class.js';
 
 export default class BookCollection {
   constructor() {
     this.collection = [];
-    this.bookList = document.getElementById("book-list");
-    this.bookTitle = document.getElementById("book-title");
-    this.bookAuthor = document.getElementById("book-author");
+    this.bookList = document.getElementById('book-list');
+    this.bookTitle = document.getElementById('book-title');
+    this.bookAuthor = document.getElementById('book-author');
 
-    if (localStorage.getItem("bookCollection")) {
-      this.collection = JSON.parse(localStorage.getItem("bookCollection"));
+    if (localStorage.getItem('bookCollection')) {
+      this.collection = JSON.parse(localStorage.getItem('bookCollection'));
       this.renderBookList();
     }
   }
@@ -20,8 +20,8 @@ export default class BookCollection {
     this.collection.push(book);
     this.renderBookList();
     this.saveBookCollection();
-    this.bookTitle.value = "";
-    this.bookAuthor.value = "";
+    this.bookTitle.value = '';
+    this.bookAuthor.value = '';
   };
 
   removeBook = (index) => {
@@ -31,25 +31,25 @@ export default class BookCollection {
   };
 
   renderBookList = () => {
-    this.bookList.innerHTML = "";
+    this.bookList.innerHTML = '';
     this.collection.forEach((book, index) => {
-      const bookItem = document.createElement("div");
-      bookItem.classList.add("book-item");
-      const infoContainer = document.createElement("div");
-      infoContainer.classList.add("info-container");
+      const bookItem = document.createElement('div');
+      bookItem.classList.add('book-item');
+      const infoContainer = document.createElement('div');
+      infoContainer.classList.add('info-container');
 
-      const title = document.createElement("div");
-      title.classList.add("book-title");
+      const title = document.createElement('div');
+      title.classList.add('book-title');
       title.innerHTML = book.title;
 
-      const author = document.createElement("div");
+      const author = document.createElement('div');
       author.innerHTML = `by ${book.author}`;
 
-      const removeBtn = document.createElement("button");
-      removeBtn.innerHTML = "Remove";
+      const removeBtn = document.createElement('button');
+      removeBtn.innerHTML = 'Remove';
       removeBtn.onclick = () => this.removeBook(index);
 
-      const hr = document.createElement("hr");
+      const hr = document.createElement('hr');
 
       infoContainer.appendChild(title);
       infoContainer.appendChild(author);
@@ -62,6 +62,6 @@ export default class BookCollection {
   };
 
   saveBookCollection = () => {
-    localStorage.setItem("bookCollection", JSON.stringify(this.collection));
+    localStorage.setItem('bookCollection', JSON.stringify(this.collection));
   };
 }

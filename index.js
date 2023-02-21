@@ -1,5 +1,5 @@
-import BookCollection from "./modules/bookCollection.js";
-import { DateTime } from "./modules/luxon.js";
+import BookCollection from './modules/bookCollection.js';
+import { DateTime } from './modules/luxon.js';
 import {
   List,
   bookList,
@@ -8,29 +8,29 @@ import {
   contact,
   addNew,
   date,
-} from "./modules/nav.js";
+} from './modules/nav.js';
 
 const bookCollection = new BookCollection();
-const addBookBtn = document.getElementById("add-book-btn");
+const addBookBtn = document.getElementById('add-book-btn');
 
-List.addEventListener("click", () => {
-  bookList.classList.remove("hidden");
-  box.classList.add("hidden");
-  contact2.classList.add("hidden");
+List.addEventListener('click', () => {
+  bookList.classList.remove('hidden');
+  box.classList.add('hidden');
+  contact2.classList.add('hidden');
 });
 
-contact.addEventListener("click", () => {
-  bookList.classList.add("hidden");
-  box.classList.add("hidden");
-  contact2.classList.remove("hidden");
+contact.addEventListener('click', () => {
+  bookList.classList.add('hidden');
+  box.classList.add('hidden');
+  contact2.classList.remove('hidden');
 });
 
-addNew.addEventListener("click", () => {
-  bookList.classList.add("hidden");
-  box.classList.remove("hidden");
-  contact2.classList.add("hidden");
+addNew.addEventListener('click', () => {
+  bookList.classList.add('hidden');
+  box.classList.remove('hidden');
+  contact2.classList.add('hidden');
 });
 date.innerHTML = `${DateTime.now().toLocaleString(DateTime.DATETIME_MED)}`;
-addBookBtn.addEventListener("click", () => {
+addBookBtn.addEventListener('click', () => {
   bookCollection.addBook();
 });
